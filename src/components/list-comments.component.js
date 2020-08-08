@@ -55,7 +55,7 @@ class Comment extends Component {
       else {
         console.log(this.state.publisher);
         
-        if(this.state.publisher == json.data.comment.user._id){
+        if(this.state.publisher === json.data.comment.user._id){
           cogoToast.error(`You cant ${e.target.name} your own comment!`, { hideAfter : 5 })
         }
         else {
