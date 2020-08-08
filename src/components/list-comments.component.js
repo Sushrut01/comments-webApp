@@ -108,7 +108,7 @@ class Comment extends Component {
               <div className="card-block px-3">
                 <h5 className="card-title text-dark" style={{marginTop: '10px', 'fontWeight':'bolder'}}>{this.props.comment.user.firstName} {this.props.comment.user.lastName}</h5>
                 <p className="card-text" style={{fontSize: '16px'}}>{this.props.comment.content }</p>
-                <p className="text-muted" style={{fontSize: '13px'}}><img src={process.env.PUBLIC_URL + '/logos/clock.png'} style={{width: '13px', height: '13px'}} />&nbsp;&nbsp;{moment(Date.parse(this.props.comment.createdAt)).fromNow()}</p>
+                <p className="text-muted" style={{fontSize: '13px'}}><img src={process.env.PUBLIC_URL + '/logos/clock.png'} style={{width: '13px', height: '13px'}} alt="image" />&nbsp;&nbsp;{moment(Date.parse(this.props.comment.createdAt)).fromNow()}</p>
               </div>
             </div>
             <div className="col-md-2 px-3">
@@ -145,7 +145,7 @@ export default class ListComments extends Component {
     console.log(data.data);
     if(data.type === "upvote" || data.type === "downvote"){
       let cloneComments = [...this.state.comments]
-      const foundIndex = cloneComments.findIndex(x => x._id == data.data.comment._id );
+      const foundIndex = cloneComments.findIndex(x => x._id === data.data.comment._id );
       console.log(foundIndex)
       cloneComments[foundIndex] = data.data.comment
 
